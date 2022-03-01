@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Shopbridge_base
 {
@@ -13,6 +14,12 @@ namespace Shopbridge_base
     {
         public static void Main(string[] args)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                    .AddJsonFile("appsettings.json", false)
+                    .AddEnvironmentVariables()
+                    .Build();
+
             CreateHostBuilder(args).Build().Run();
         }
 

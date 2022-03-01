@@ -45,8 +45,13 @@ namespace Shopbridge_base
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Shopbridge_base", Version = "v1" });
             });
 
-            services.AddDbContext<Shopbridge_Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Shopbridge_Context")));
+             services.AddDbContext<Shopbridge_Context>(options =>
+                    options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
+            //var connectionString = Environment.GetEnvironmentVariable("DefaultConnection");
+
+            //services.AddDbContext<Shopbridge_Context>(options =>
+            //       options.UseNpgsql(Environment.GetEnvironmentVariable("DefaultConnection")));
 
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IProductService, ProductService>();
@@ -58,6 +63,13 @@ namespace Shopbridge_base
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    var context = serviceScope.ServiceProvider.GetRequiredService<Shopbridge_Context>();
+            //    context.Database.EnsureCreated();
+            //}
+
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

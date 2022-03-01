@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DefaultConnection ": "dbconnection"
       }
     },
     "shopbridge_base": {
@@ -22,7 +23,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DefaultConnection ": "dbconnection"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "dotnetRunMessages": "true"
@@ -33,6 +35,7 @@
       "launchUrl": "https://localhost:5001/swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
+        "DefaultConnection ": "dbconnection",
         "ASPNETCORE_URLS": "https://localhost:5001;http://localhost:5000"
       },
       "distributionName": ""
